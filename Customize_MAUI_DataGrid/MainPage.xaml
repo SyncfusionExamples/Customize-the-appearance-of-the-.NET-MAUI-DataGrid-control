@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:Customize_MAUI_DataGrid"
+             x:Class="Customize_MAUI_DataGrid.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:OrderInfoRepo />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+         <!--<Style TargetType="syncfusion:DataGridCell" x:Key="customCellStyle">
+            <Setter Property="Background" Value="LightBlue" />
+        </Style>
+
+        <Style TargetType="syncfusion:DataGridHeaderCell" x:Key="customHeaderStyle">
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style TargetType="syncfusion:DataGridRow">
+            <Setter Property="Background" Value="LightBlue" />
+        </Style>
+
+        <Style TargetType="syncfusion:DataGridHeaderRow">
+            <Setter Property="Background" Value="Red" />
+        </Style>-->
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <syncfusion:SfDataGrid x:Name="dataGrid"
+                               ItemsSource="{Binding Orders}"
+                               AutoGenerateColumnsMode="None"
+                               ColumnWidthMode="Auto" 
+                               GridLinesVisibility="Both"
+                               HeaderGridLinesVisibility="Both" >
+            <syncfusion:SfDataGrid.DefaultStyle>
+                <syncfusion:DataGridStyle RowBackground="Bisque"
+                                  HeaderRowBackground="Red"
+                                  RowTextColor="Red"
+                                  HeaderRowTextColor="White"/>
+            </syncfusion:SfDataGrid.DefaultStyle>
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:DataGridTextColumn MappingName="OrderID" 
+                                               HeaderText="Order ID"></syncfusion:DataGridTextColumn>
+                <syncfusion:DataGridTextColumn MappingName="CustomerID" 
+                                               HeaderText="Customer ID" ></syncfusion:DataGridTextColumn>
+                <syncfusion:DataGridTextColumn MappingName="Customer"
+                                               HeaderText="Name"></syncfusion:DataGridTextColumn>
+                <syncfusion:DataGridTextColumn MappingName="ShipCountry"
+                                               HeaderText="Country"></syncfusion:DataGridTextColumn>
+            </syncfusion:SfDataGrid.Columns>
+
+        </syncfusion:SfDataGrid>
+    </StackLayout>
+
+
+</ContentPage>
